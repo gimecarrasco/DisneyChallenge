@@ -1,5 +1,6 @@
 package com.alkemy.challengeDisney.disney.entity;
 
+import com.alkemy.challengeDisney.disney.enums.Qualification;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,7 +28,8 @@ public class MovieEntity {
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate creationDate;
 
-    private Integer qualification;
+    @Enumerated
+    private Qualification qualification;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
